@@ -29,8 +29,7 @@ y1 = 500
 x2 = 700
 y2 = 500
 xb = 100
-yb = 50
-
+yb = 100
 
 class Ball:
     def __init__(self, screen: pygame.Surface, obj):
@@ -148,7 +147,7 @@ class Gun:
             self.x = 1400 - self.x
         if self.x <= 100:
             self.vx = - self.vx
-            self.x = 200 - self.x        
+            self.x = 200 - self.x  
         
 class Gun_2:
     def __init__(self, screen, x = x2, y = y2):
@@ -306,6 +305,10 @@ class Bomb(Ball):
         self.screen.blit(surf, rect)
 
 pygame.init()
+pygame.mixer.music.load('скибиди.mp3')
+pygame.mixer.music.play(-1)
+pygame.mixer.music.set_volume(0.5)
+
 font = pygame.font.Font('Raindrop.otf', 36)
 counter = 0
 score1 = 0
@@ -329,7 +332,7 @@ bomb = Bomb(screen)
 finished = False
 
 attack = pygame.USEREVENT + 0
-pygame.time.set_timer(attack, 2000)
+pygame.time.set_timer(attack, 1000)
 
 
 while not finished:
